@@ -35,6 +35,19 @@
         1,
         null,
         null,
+        null,
+        1,
+        null,
+        2,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/tim/Practice/yelp-clone/spec/rails_helper.rb": [
@@ -350,7 +363,7 @@
         null,
         null,
         1,
-        4,
+        5,
         null,
         null,
         1,
@@ -358,6 +371,10 @@
         null,
         null,
         1,
+        1,
+        1,
+        null,
+        null,
         1,
         1,
         null,
@@ -376,6 +393,6 @@
         null
       ]
     },
-    "timestamp": 1450530873
+    "timestamp": 1450532093
   }
 }
