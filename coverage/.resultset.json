@@ -312,6 +312,8 @@
         1,
         null,
         1,
+        1,
+        null,
         null,
         null,
         null,
@@ -376,7 +378,53 @@
         1,
         null
       ],
+      "/Users/tim/Practice/yelp-clone/app/helpers/reviews_helper.rb": [
+        1,
+        null
+      ],
       "/Users/tim/Practice/yelp-clone/app/helpers/welcome_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/tim/Practice/yelp-clone/spec/features/reviews_feature_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/tim/Practice/yelp-clone/spec/models/restaurant_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null
+      ],
+      "/Users/tim/Practice/yelp-clone/app/models/restaurant.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/tim/Practice/yelp-clone/spec/models/review_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null
+      ],
+      "/Users/tim/Practice/yelp-clone/app/models/review.rb": [
+        1,
         1,
         null
       ],
@@ -388,7 +436,7 @@
         null,
         null,
         1,
-        9,
+        11,
         null,
         null,
         1,
@@ -429,11 +477,27 @@
         1,
         null
       ],
-      "/Users/tim/Practice/yelp-clone/app/models/restaurant.rb": [
+      "/Users/tim/Practice/yelp-clone/app/controllers/reviews_controller.rb": [
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ]
     },
-    "timestamp": 1450533391
+    "timestamp": 1450536127
   }
 }
