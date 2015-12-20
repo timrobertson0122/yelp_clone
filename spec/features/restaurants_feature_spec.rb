@@ -78,13 +78,23 @@ feature 'restaurants' do
 			expect(page).not_to have_content 'Update Restaurant'
 		end
 
-		scenario 'let a logged in user edit a restaurant' do
+		scenario 'prevents non-creator from editing a restaurant' do
 			sign_in('test@example.com', 'testtest')
 			visit '/restaurants'
 			click_link 'Edit KFC'
-			fill_in 'Name', with: 'Kentucky Fried Chicken'
+			expect(page).to have_content 'KFC'
+			expect(page).to have_content 'You can only edit a restaurant that you have created'
+		end
+
+		scenario 'let creator edit a restaurant' do
+			sign_in('test@example.com', 'testtest')
+			create_restaurant('Trade')
+			visit '/restaurants'
+			click_link 'Edit Trade'
+			fill_in 'Name', with: 'Trade Made'
 			click_button 'Update Restaurant'
-			expect(page).to have_content 'Kentucky Fried Chicken'
+			expect(page).to have_content 'Trade Made'
+			expect(page).to have_content 'Restaurant edited successfully'
 			expect(current_path).to eq '/restaurants'
 		end
 	end
