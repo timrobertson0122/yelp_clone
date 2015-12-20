@@ -1,4 +1,6 @@
 require 'rails_helper'
+require_relative 'helpers/session'
+include SessionHelpers
 
 feature 'restaurants' do
 	context 'no restaurants have been added' do
@@ -22,7 +24,15 @@ feature 'restaurants' do
 	end
 
 	context 'creating restaurants' do
+
+		scenario 'prevents a non logged in user from creating restaurants' do
+			visit '/restaurants'
+			click_link 'Add a restaurant'
+			expect(page).to have_content 'Log in'
+		end
+
 		scenario 'prompts user to fill out a form, then displays a new restaurant' do
+			sign_in('test@example.com', 'testtest')
 			visit '/restaurants'
 			click_link 'Add a restaurant'
 			fill_in 'Name', with: 'KFC'
@@ -33,6 +43,7 @@ feature 'restaurants' do
 
 		context 'an invalid restaurant' do
 			it 'does not let you submit a name that is too short' do
+				sign_in('test@example.com', 'testtest')
 				visit '/restaurants'
 				click_link 'Add a restaurant'
 				fill_in 'Name', with: 'Kf'
@@ -60,6 +71,7 @@ feature 'restaurants' do
 		before { Restaurant.create name: 'KFC' }
 
 		scenario 'let a user edit a restaurant' do
+			sign_in('test@example.com', 'testtest')
 			visit '/restaurants'
 			click_link 'Edit KFC'
 			fill_in 'Name', with: 'Kentucky Fried Chicken'
@@ -74,6 +86,7 @@ feature 'restaurants' do
 		before { Restaurant.create name: 'KFC' }
 
 		scenario 'removes a restaurant when a user clicks a delete link' do
+			sign_in('test@example.com', 'testtest')
 			visit '/restaurants'
 			click_link 'Delete KFC'
 			expect(page).not_to have_content 'KFC'
