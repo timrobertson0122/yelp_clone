@@ -1121,3 +1121,64 @@ Processing by Devise::SessionsController#new as HTML
   Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (11.4ms)
   Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (41.6ms)
 Completed 200 OK in 95ms (Views: 81.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2015-12-20 16:41:32 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"2"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-12-20 16:41:32 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (5.4ms)
+  Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 52ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/restaurants/2" for ::1 at 2015-12-20 16:41:35 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mRestaurant Load (0.3ms)[0m  SELECT  "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mReview Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "reviews" WHERE "reviews"."restaurant_id" = $1 LIMIT 1[0m  [["restaurant_id", 2]]
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1  [["restaurant_id", 2]]
+  Rendered restaurants/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 40ms (Views: 28.7ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/restaurants/2" for ::1 at 2015-12-20 16:41:38 +0100
+Processing by RestaurantsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"FZ/CHSOpmiYWCGATcPwR8NZ7pne5PBsAJM6Fj0vDzxYD0koEGNSFkn5Yf87b3M/8P2LtMf31lzZB6lSsCopI5Q==", "id"=>"2"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-12-20 16:41:38 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (4.6ms)
+  Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 34ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/restaurants/2/edit" for ::1 at 2015-12-20 16:43:25 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"2"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-12-20 16:43:25 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (5.2ms)
+  Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/restaurants/new" for ::1 at 2015-12-20 16:44:48 +0100
+Processing by RestaurantsController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-12-20 16:44:48 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (4.7ms)
+  Rendered /Users/tim/.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.0ms)

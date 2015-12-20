@@ -29,9 +29,10 @@ feature 'restaurants' do
 			visit '/restaurants'
 			click_link 'Add a restaurant'
 			expect(page).to have_content 'Log in'
+			expect(page).not_to have_content 'Create Restaurant'
 		end
 
-		scenario 'prompts user to fill out a form, then displays a new restaurant' do
+		scenario 'prompts a logged in user to fill out a form, then displays a new restaurant' do
 			sign_in('test@example.com', 'testtest')
 			visit '/restaurants'
 			click_link 'Add a restaurant'
@@ -70,7 +71,14 @@ feature 'restaurants' do
 
 		before { Restaurant.create name: 'KFC' }
 
-		scenario 'let a user edit a restaurant' do
+		scenario 'prevents a non logged in user from editing restaurants' do
+			visit '/restaurants'
+			click_link 'Edit KFC'
+			expect(page).to have_content 'Log in'
+			expect(page).not_to have_content 'Update Restaurant'
+		end
+
+		scenario 'let a logged in user edit a restaurant' do
 			sign_in('test@example.com', 'testtest')
 			visit '/restaurants'
 			click_link 'Edit KFC'
@@ -84,6 +92,13 @@ feature 'restaurants' do
 	context 'deleting restaurants' do
 
 		before { Restaurant.create name: 'KFC' }
+
+		scenario 'prevents a non logged in user from deleting restaurants' do
+			visit '/restaurants'
+			click_link 'Delete KFC'
+			expect(page).to have_content 'Log in'
+			expect(page).not_to have_content 'Restaurant deleted successfully'
+		end
 
 		scenario 'removes a restaurant when a user clicks a delete link' do
 			sign_in('test@example.com', 'testtest')
