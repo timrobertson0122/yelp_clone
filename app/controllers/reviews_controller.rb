@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+	before_action :authenticate_user!, :except => [:index, :show]
+
 	def review_params
 		params.require(:review).permit(:thoughts, :rating)
 	end
@@ -11,8 +13,28 @@ class ReviewsController < ApplicationController
 
 	def create
 		@restaurant = Restaurant.find(params[:restaurant_id])
-		@restaurant.reviews.create(review_params)
-		redirect_to restaurants_path
+		@review = @restaurant.reviews.build(review_params.merge(user: current_user))
+
+		if @review.save
+			redirect_to restaurants_path
+		else
+			if @review.errors[:user]
+				redirect_to restaurants_path, alert: 'You have already reviewed this restaurant'
+			else
+				render :new
+			end
+		end
+	end
+
+	def destroy
+		@review = Restaurant.reviews.find(params[:restaurant_id])
+		if @review.user != current_user
+			redirect_to restaurants_path, alert: 'You can only delete a review that you have created'
+		else
+			@review.destroy
+			flash[:notice] = 'Review deleted successfully'
+			redirect_to '/restaurants'
+		end
 	end
 
 end
