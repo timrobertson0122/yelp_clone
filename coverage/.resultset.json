@@ -420,6 +420,13 @@
         null,
         1,
         2,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         1,
         1,
         1,
@@ -437,10 +444,17 @@
         1,
         null,
         1,
+        null,
         2,
+        null,
+        1,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/tim/Practice/yelp-clone/app/models/review.rb": [
+        1,
         1,
         1,
         null
@@ -519,6 +533,6 @@
         null
       ]
     },
-    "timestamp": 1450610106
+    "timestamp": 1450610364
   }
 }
