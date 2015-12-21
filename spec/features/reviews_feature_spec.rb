@@ -53,6 +53,6 @@ feature 'reviewing' do
 		click_link 'Sign out'
 		login_as(user2, :scope => :user)
 		leave_review('Great', '5')
-		expect(page).to have_content('Average rating: 4')
+		expect(page).to have_content('Average rating: ★★★★☆')
 	end
 end
