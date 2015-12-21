@@ -37,6 +37,6 @@ feature 'reviewing' do
 		visit '/restaurants'
 		click_link 'Delete review'
 		expect(page).not_to have_content 'so, so'
-		expect(page).tp have_content 'Review deleted successfully'
+		expect(page).to have_content 'Review deleted successfully'
 	end
 end

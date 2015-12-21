@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def destroy
-		@review = Restaurant.reviews.find(params[:restaurant_id])
+		@review = Review.find(params[:id])
 		if @review.user != current_user
 			redirect_to restaurants_path, alert: 'You can only delete a review that you have created'
 		else
