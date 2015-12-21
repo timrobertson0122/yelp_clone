@@ -31,7 +31,7 @@ feature 'reviewing' do
 		expect(page).not_to have_content 'Thoughts'
 	end
 
-	scenario 'only creator can delete the review' do
+	scenario 'creator can delete the review' do
 		sign_in('test@example.com', 'testtest')
 		leave_review('so, so', '1')
 		visit '/restaurants'
@@ -39,4 +39,16 @@ feature 'reviewing' do
 		expect(page).not_to have_content 'so, so'
 		expect(page).to have_content 'Review deleted successfully'
 	end
+
+	scenario 'non creator cannot delete the review' do
+		sign_in('test@example.com', 'testtest')
+		leave_review('so, so', '1')
+		visit '/restaurants'
+		click_link 'Sign out'
+		sign_in('test2@example.com', 'testtest')
+		visit '/restaurants'
+		click_link 'Delete review'
+		expect(page).to have_content 'You can only delete a review that you have created'
+	end
+
 end
