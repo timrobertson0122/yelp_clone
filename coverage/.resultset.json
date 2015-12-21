@@ -1,27 +1,19 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/tim/Practice/yelp-clone/spec/features/helpers/reviews_helper_spec.rb": [
+      "/Users/tim/Practice/yelp-clone/spec/features/endorsements_feature_spec.rb": [
         1,
         null,
         1,
         1,
-        null,
-        1,
-        1,
-        null,
-        null,
         1,
         1,
         null,
         null,
         1,
         1,
-        null,
-        null,
         1,
-        1,
-        null,
+        0,
         null,
         null
       ],
@@ -564,6 +556,8 @@
         null,
         1,
         1,
+        1,
+        null,
         null,
         null,
         null,
@@ -642,6 +636,10 @@
         1,
         null
       ],
+      "/Users/tim/Practice/yelp-clone/app/helpers/endorsements_helper.rb": [
+        1,
+        null
+      ],
       "/Users/tim/Practice/yelp-clone/app/helpers/restaurants_helper.rb": [
         1,
         null
@@ -650,15 +648,39 @@
         1,
         null,
         1,
-        48,
-        19,
-        19,
+        49,
+        20,
+        20,
         null,
         null,
         null
       ],
       "/Users/tim/Practice/yelp-clone/app/helpers/welcome_helper.rb": [
         1,
+        null
+      ],
+      "/Users/tim/Practice/yelp-clone/spec/features/helpers/reviews_helper_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/tim/Practice/yelp-clone/spec/features/restaurants_feature_spec.rb": [
@@ -980,8 +1002,8 @@
         1,
         null,
         1,
-        47,
-        18,
+        48,
+        19,
         null,
         null,
         null
@@ -1029,7 +1051,7 @@
         null,
         null,
         1,
-        47,
+        48,
         null,
         null,
         1,
@@ -1125,6 +1147,6 @@
         null
       ]
     },
-    "timestamp": 1450712365
+    "timestamp": 1450713015
   }
 }

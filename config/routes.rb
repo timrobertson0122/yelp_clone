@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
 	root to: 'restaurants#index'
 
-	resources :restaurants do
-		resources :reviews
+	resources :restaurants, shallow: true do
+		resources :reviews do
+			resources :endorsements
+		end
 	end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
