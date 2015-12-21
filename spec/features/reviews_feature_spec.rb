@@ -5,10 +5,11 @@ include SessionHelpers
 feature 'reviewing' do
 
 	let!(:restaurant) { FactoryGirl.create(:restaurant) }
-	let!(:user) { FactoryGirl.create(:user) }
+	let!(:user1) { FactoryGirl.create(:user) }
+	let!(:user2) { FactoryGirl.create(:user) }
 
 	before do
-		login_as(user, :scope => :user)
+		login_as(user1, :scope => :user)
 	end
 
 	scenario 'allows logged in users to leave a review using a form' do
@@ -40,7 +41,7 @@ feature 'reviewing' do
 		leave_review('so, so', '1')
 		visit '/restaurants'
 		click_link 'Sign out'
-		sign_in('test2@example.com', 'testtest')
+		login_as(user2, :scope => :user)
 		visit '/restaurants'
 		click_link 'Delete review'
 		expect(page).to have_content 'You can only delete a review that you have created'
@@ -48,6 +49,9 @@ feature 'reviewing' do
 
 	scenario 'displays an average rating for all reviews' do
 		leave_review('So so', '3')
+		visit '/restaurants'
+		click_link 'Sign out'
+		login_as(user2, :scope => :user)
 		leave_review('Great', '5')
 		expect(page).to have_content('Average rating: 4')
 	end
